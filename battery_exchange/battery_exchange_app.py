@@ -1,3 +1,4 @@
+import inspect
 from __future__ import annotations
 
 import json
@@ -45,7 +46,9 @@ class BatteryExchangeApp(ZApplication):
             app_id=battery_exchange_const.APP_ID,
             op_name=battery_exchange_const.APP_NAME,
             node_max_retry_times=15,
-            use_factory_run_record=False,
+            **({'use_factory_run_record': False}
+                if 'use_factory_run_record' in inspect.signature(ZApplication.__init__).parameters
+                else {}),
         )
         self.config: BatteryExchangeConfig = self.ctx.run_context.get_config(
             app_id=battery_exchange_const.APP_ID,
