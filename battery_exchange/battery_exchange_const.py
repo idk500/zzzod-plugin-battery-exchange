@@ -1,11 +1,10 @@
-# Generated from plugin.json (battery_exchange/package manifest).
+# Generated from plugin.json. Run scripts/generate_const.py after editing manifest.
 APP_ID = "battery_exchange"
 APP_NAME = "自动兑换电卡"
-# 默认组: 使其可被一条龙触发; 配置 enabled 默认 false 由用户决定是否常驻日常链
-DEFAULT_GROUP = True
+DEFAULT_GROUP = False
 NEED_NOTIFY = True
 
 PLUGIN_AUTHOR = "idk500"
 PLUGIN_HOMEPAGE = "https://github.com/idk500/zzzod-plugin-inventory-scan"
 PLUGIN_VERSION = "1.0.0"
-PLUGIN_DESCRIPTION = "角色培养不再消耗体力时，把储蓄电量自动兑换为可存储的道具（以太电池/储值电卡），保底线与单轮张数可配置。"
+PLUGIN_DESCRIPTION = "角色培养不再消耗体力时，把储蓄电量自动兑换为可存储道具：以太电池（恢复60电量，流程复用框架已验证的快捷手册→[获取]合成→道具处理链路）或储值电卡（材料副本快速刷取，入口待实机映射）。配置：目标物品/单轮张数上限/储蓄电量保底线。probe 模式默认开启。"
