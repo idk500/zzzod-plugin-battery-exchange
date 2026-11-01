@@ -1,4 +1,3 @@
-import inspect
 from __future__ import annotations
 
 import json
@@ -19,6 +18,7 @@ from zzz_od.operation.back_to_normal_world import BackToNormalWorld
 
 from . import battery_exchange_const
 from .battery_exchange_config import BatteryExchangeConfig
+from .zzz_compat import factory_record_kwargs
 
 
 class BatteryExchangeApp(ZApplication):
@@ -46,9 +46,7 @@ class BatteryExchangeApp(ZApplication):
             app_id=battery_exchange_const.APP_ID,
             op_name=battery_exchange_const.APP_NAME,
             node_max_retry_times=15,
-            **({'use_factory_run_record': False}
-                if 'use_factory_run_record' in inspect.signature(ZApplication.__init__).parameters
-                else {}),
+            **factory_record_kwargs(),
         )
         self.config: BatteryExchangeConfig = self.ctx.run_context.get_config(
             app_id=battery_exchange_const.APP_ID,
